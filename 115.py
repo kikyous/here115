@@ -67,7 +67,7 @@ class Here115:
     if res_json['state'] == False:
       l.log('摇奖失败！')
       return
-    str=u'\n获取空间：%s, 总空间：%s, 已使用：%s, 获取雨露：%d\n' % (res_json['picked'], res_json['total_size'], res_json['used_percent'], res_json['exp'])
+    str=u'获取空间：%s, 总空间：%s, 已使用：%s, 获取雨露：%d' % (res_json['picked'], res_json['total_size'], res_json['used_percent'], res_json['exp'])
     l.log(str.encode("u8"))
 
 
