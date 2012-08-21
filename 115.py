@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 accounts_here = [
-    # {"account":'115115115','password':'000000'},
-    # {"account":'116116116','password':'000000'},
-    {"account":'18909444967','password':'11352355'},
-    {"account":'826123231@qq.com','password':'826123231'},
+    {"account":'115115115','password':'000000'},
+    {"account":'116116116','password':'000000'},
 ]
 
 import urllib
