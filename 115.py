@@ -15,7 +15,7 @@ class Log:
     self.PATH=os.path.abspath(os.path.expanduser('.'))
     self.fd=open(self.PATH+"/log.txt",'a')
     t=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-    self.log("# %s"%t,False)
+    self.log("## %s"%t,False)
   def log(self,s,indent=True):
     if indent:
       s="  %s"%s
@@ -42,10 +42,10 @@ class Here115:
     res=fd.read()
     fd.close()
     if re.search('location\.href="http://115.com"', res) == None:
-      l.log('%s 密码不正确！\n' % username)
+      l.log('%s 密码不正确！' % username)
       return False
     else:
-      l.log('%s 登陆成功，准备摇奖..   ' % username),
+      l.log('%s 登陆成功，准备摇奖...' % username),
       return True
 
   def pick_space(self):
@@ -67,7 +67,7 @@ class Here115:
     if res_json['state'] == False:
       l.log('摇奖失败！')
       return
-    str=u'获取空间：%s, 总空间：%s, 已使用：%s, 获取雨露：%d' % (res_json['picked'], res_json['total_size'], res_json['used_percent'], res_json['exp'])
+    str=u'> 获取空间：%s, 总空间：%s, 已使用：%s, 获取雨露：%d' % (res_json['picked'], res_json['total_size'], res_json['used_percent'], res_json['exp'])
     l.log(str.encode("u8"))
 
 
