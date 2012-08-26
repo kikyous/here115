@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
+#email:kikyous@163.com
 accounts_here = [
     {"account":'115115115','password':'000000'},
     {"account":'116116116','password':'000000'},
@@ -9,17 +10,28 @@ import urllib
 import urllib2
 import cookielib
 import json
-import re,time,os
+import re,time,os,sys
 class Log:
   def __init__(self):
     self.PATH=os.path.abspath(os.path.expanduser('.'))
     self.fd=open(self.PATH+"/log.txt",'a')
     t=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     self.log("## %s"%t,False)
+
+  if sys.platform.startswith('win'):
+    def _(self,s):
+      try:
+        return s.decode('utf8')
+      except:
+        return s
+  else:
+    def _(self,s):
+      return s
+
   def log(self,s,indent=True):
     if indent:
       s="  %s"%s
-    print(s.decode("u8"))
+    print(self._(s))
     self.fd.write(s)
     self.fd.write("\n")
 
@@ -78,4 +90,5 @@ if __name__ == '__main__':
     if not h.login(i['account'],i['password']):
       continue
     h.pick_space()
-
+  if len(sys.argv) < 2:
+    raw_input('\npress enter to continue.')
